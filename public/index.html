@@ -1,56 +1,44 @@
 <!DOCTYPE html>
 <html lang="">
   <head>
+
+      <script src="https://unpkg.com/vue"></script>
+      <script src="https://unpkg.com/http-vue-loader"></script>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
   </head>
   <body>
+    
+    
     <noscript>
       <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
     </noscript>
-    <div id="app"></div>
+    <div id="app"  > 
+ 
+  
+    </div>
     <!-- built files will be auto injected -->
   </body>
+
 </html>
 
 
-<script>
-   
+<script type="text/javascript">
 
-  
-    function oneChatCallBackQRScanner(ScanQRcodevalue){
-    // alert(ScanQRcodevalue);
-        
-    if (ScanQRcodevalue === ""){
-      alert("data empty ")
-    }else { 
+  function oneChatCallBackQRScanner(val) {
+      document.getElementById("qrcodecallback").innerHTML=val;
+    
+  }
 
-      const data = { Qrcode: ScanQRcodevalue , };
-      alert("Scan Success!");
-      alert(ScanQRcodevalue);
-      fetch('http://172.16.1.77:3000/update', { // qr-code ค่าที่ต้องการส่งไป
-        method: 'POST', // or 'PUT'
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      })
-      .then(response => response.json())
-      .then(data => {
-
-        console.log('Success:', data);
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-    }
-
-
-} 
-  
-
-  
 </script>
+<body>
+  <a href="https://chat-api.one.th/go_api/api/v1/openScanQRcodeWithValue" target="_blank">
+     </a>
+
+     
+</body>
